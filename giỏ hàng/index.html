@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+    <title>MuahangOnline</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="data.js"></script>
+    <script src="product.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="panel">
+    <h2 id="username"></h2>
+    <button onclick="logout()">Log Out</button>
+</div>
+<div class="cart-icon">
+    <p><i class="fas fa-cart-plus"></i><span>0</span><sup>đ</sup></p>
+</div>
+<section class="products">
+    <div class="">
+        <div class="product-items" id="product">
+        </div>
+    </div>
+</section>
+<script>
+    let product1 = new Product("Air jordan 1 chicago release","image/img1.png", 1900000);
+    let product2 = new Product("Supreme x Nike air force 1 low","image/img2.png", 3000000);
+    let product3 = new Product("Off white x nike dunk low 1 of 50","image/img3.png", 16000000);
+    let product4 = new Product("Off white x nike air jordan5 Sail","image/img4.png", 8000000);
+    let product5 = new Product("Pharrell williams Adidas","image/img5.png", 8000000);
+    let products = [product1, product2, product3, product4, product5];
+    for (let i = 0; i < products.length; i++) {
+        document.getElementById("product").innerHTML += products[i].getHtml()
+    }
+
+</script>
+
+<section class="cart">
+    <i class="fas fa-times"></i>
+    <h2>Giỏ hàng</h2>
+    <form action="">
+        <table>
+            <thead>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Chọn</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div style="text-align: right" class="price-total">
+            <p style="font-weight: bold">Tổng tiền:<span>0đ</span></p>
+        </div>
+        <button>Mua hàng</button>
+    </form>
+</section>
+<script src="cart.js"></script>
+<script>
+    let username = loadUserLogin();
+    if (username =="") {
+        window.location.href = "DN.html"
+    }
+    document.getElementById("username").innerHTML = "Xin chào "+username
+    function logout() {
+        saveUserLogin("");
+        window.location.href = "DN.html"
+    }
+</script>
+</body>
+</html>
