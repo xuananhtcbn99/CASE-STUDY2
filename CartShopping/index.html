@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+    <title>MuahangOnline</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="data.js"></script>
+</head>
+<body>
+<div class="panel">
+    <h2 id="username"></h2>
+    <button onclick="logout()">Log Out</button>
+</div>
+<div class="cart-icon">
+    <p><i class="fas fa-cart-plus"></i><span>0</span><sup>đ</sup></p>
+</div>
+<section class="products">
+    <div class="">
+        <div class="product-items">
+            <div class="product-item">
+                <img style="width: 200px; height: 150px" src="image/img1.png" alt="">
+                <div class="product-item-text">
+                    <p><span>1900000</span><sup>đ</sup></p>
+                    <h1 style="font-weight: boil; font-size: 16px;">Air jordan 1 chicago release</h1>
+                </div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img style="width: 200px; height: 150px" src="image/img2.png" alt="">
+                <div class="product-item-text">
+                    <p><span>3000000</span><sup>đ</sup></p>
+                    <h1 style="font-weight: boil; font-size: 16px;">Supreme x Nike air force 1 low</h1>
+                </div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img style="width: 200px; height: 150px" src="image/img3.png" alt="">
+                <div class="product-item-text">
+                    <p><span>16000000</span><sup>đ</sup></p>
+                    <h1 style="font-weight: boil; font-size: 16px;">Off white x nike dunk low 1 of 50</h1>
+                </div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img style="width: 200px; height: 150px" src="image/img4.png" alt="">
+                <div class="product-item-text">
+                    <p><span>8000000</span><sup>đ</sup></p>
+                    <h1 style="font-weight: boil; font-size: 16px;">Off white x nike air jordan5 Sail</h1>
+                </div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img style="width: 200px; height: 150px" src="image/img5.png" alt="">
+                <div class="product-item-text">
+                    <p><span>10000000</span><sup>đ</sup></p>
+                    <h1 style="font-weight: boil; font-size: 16px;">Pharrell williams Adidas</h1>
+                </div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="cart">
+    <i class="fas fa-times"></i>
+    <h2>Giỏ hàng</h2>
+    <form action="">
+        <table>
+            <thead>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Chọn</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div style="text-align: right" class="price-total">
+            <p style="font-weight: bold">Tổng tiền:<span>0đ</span></p>
+        </div>
+        <button>Mua hàng</button>
+    </form>
+</section>
+<script src="script.js"></script>
+    <script>
+        let username = loadUserLogin();
+        if (username =="") {
+            window.location.href = "DN.html"
+        }
+        document.getElementById("username").innerHTML = "Xin chào "+username
+        function logout() {
+            saveUserLogin("");
+            window.location.href = "DN.html"
+        }
+    </script>
+</body>
+</html>

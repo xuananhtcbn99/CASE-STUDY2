@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <script src="data.js"></script>
+    <style>
+
+        .container {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            font-style: italic;
+
+        }
+
+        .form-register {
+            width: 500px;
+            height: 600px;
+            border-radius: 10px;
+            padding: 40px;
+        }
+
+        .form-register h1 {
+            margin-bottom: 40px;
+        }
+
+        .form-text {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .form-text input {
+            width: 350px;
+            height: 35px;
+            border: black;
+            text-align: center;
+            border-bottom: 1px solid gray;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form>
+        <div class="form-register" style="background-color: #5d74e8">
+            <h1 style="color: #eeeeee">Đăng ký thành viên</h1>
+            <div class="form-text">
+                <table>
+                    <tr>
+                        <td style="text-align: left">Họ và tên:</td>
+                        <td><input type="text" placeholder="Họ và tên(*)" id="name"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left">Số điện thoại:</td>
+                        <td><input type="text" placeholder="Số điện thoại(*)" id="phoneNumber"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left">Email:</td>
+                        <td><input type="email" placeholder="Email(*)" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left">Mật khẩu:</td>
+                        <td><input type="password" placeholder="Mật khẩu(*)" id="password"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left">Nhập lại mật khẩu:</td>
+                        <td><input type="password" placeholder="Nhập lại mật khẩu(*)" id="repassword"></td>
+                    </tr>
+                </table>
+            </div>
+            <button type="button" style="width: 70px" onclick="dangKy()">Đăng ký</button>
+
+        </div>
+    </form>
+    <script>
+        function dangKy() {
+            let name = document.getElementById("name").value;
+            let phonenumber = document.getElementById("phoneNumber").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let repassword = document.getElementById("repassword").value;
+            if (name === "" || phonenumber === "" || email === "" || password === "" || repassword === "") {
+                alert("Hãy điền đầy đủ thông tin có (*)")
+            } else if (password !== repassword) {
+                alert("Mật khẩu không khớp")
+            } else {
+                alert("Đăng ký thành công");
+                let users = loadData();
+                let userObj = {
+                    "name": name,
+                    "phonenumber": phonenumber,
+                    "email": email,
+                    "password": password
+                }
+                users.push(userObj);
+                saveData(users)
+                window.location.href = "DN.html";
+            }
+
+        }
+    </script>
+</body>
+</html>
